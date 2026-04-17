@@ -1,23 +1,21 @@
-import Link from "next/link"
-import { ArrowRight, MapPin, Sparkles } from "lucide-react"
+import Link from "next/link";
+import { ArrowRight, MapPin, Sparkles } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { profileData } from "@/lib/data/profile"
+import { Button } from "@/components/ui/button";
+import { profileData } from "@/lib/data/profile";
 
 const statAccents = [
   "brutal-section-cyan",
   "brutal-section-lime",
   "brutal-section-pink",
-] as const
+] as const;
 
 export function HeroSection() {
   return (
     <div className="brutal-card brutal-section-violet relative overflow-hidden p-5 sm:min-h-[30rem] sm:p-7 md:min-h-[34rem] md:p-10">
       <div className="relative grid gap-8 md:grid-cols-[minmax(0,1.08fr)_minmax(17rem,0.92fr)] md:items-start lg:gap-10 xl:grid-cols-[minmax(0,1.3fr)_minmax(18rem,0.9fr)]">
-
         {/* ── Left: Identity + CTA ── */}
         <div className="space-y-6 sm:space-y-8 md:pr-2">
-
           {/* Availability sticker */}
           <div className="inline-flex max-w-full flex-wrap items-center gap-2 border-2 border-black bg-xxx-yellow-300 px-4 py-2 text-[0.68rem] font-black uppercase tracking-[0.24em] text-black shadow-[3px_3px_0px_0px_#000]">
             <span className="size-2 rounded-full bg-black" />
@@ -25,7 +23,6 @@ export function HeroSection() {
           </div>
 
           <div className="space-y-5 sm:space-y-6">
-
             {/* Location */}
             <p className="flex flex-wrap items-center gap-2 font-mono text-[0.68rem] font-black uppercase tracking-[0.28em] text-black sm:text-xs sm:tracking-[0.34em]">
               <MapPin className="size-3.5" />
@@ -33,15 +30,14 @@ export function HeroSection() {
             </p>
 
             {/* Heading */}
-            <h1 className="max-w-4xl text-[clamp(3rem,14vw,4.75rem)] font-heading leading-[0.9] tracking-tight text-black sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
+            <h1 className="max-w-4xl text-[clamp(1rem,9vw,4.75rem)] font-heading leading-[1.05] tracking-tight text-black sm:text-6xl sm:leading-[0.92] md:text-7xl lg:text-8xl xl:text-9xl">
               Premium{" "}
-              <span className="bg-black px-2 py-1 leading-none text-xxx-yellow-300 sm:inline-block sm:px-3">
+              <span className="inline-block bg-black px-3 py-[0.1em] leading-none text-xxx-yellow-300">
                 interfaces,
               </span>{" "}
-              reliable APIs,{" "}
-              <br className="hidden sm:block" />
+              reliable APIs, <br className="hidden sm:block" />
               and AI workflows{" "}
-              <span className="bg-xxx-yellow-300 px-2 py-0.5 leading-none text-black sm:inline-block">
+              <span className="inline-block bg-xxx-yellow-300 px-2 py-[0.05em] leading-none text-black">
                 built to ship.
               </span>
             </h1>
@@ -54,14 +50,24 @@ export function HeroSection() {
 
           {/* CTA */}
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap md:max-w-md">
-            <Button asChild variant="default" size="lg" className="w-full sm:w-auto">
+            <Button
+              asChild
+              variant="default"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
               <a href={profileData.primaryCta.href}>
                 {profileData.primaryCta.label}
                 <ArrowRight className="size-4" />
               </a>
             </Button>
 
-            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
               <Link href={profileData.secondaryCta.href}>
                 {profileData.secondaryCta.label}
               </Link>
@@ -70,11 +76,11 @@ export function HeroSection() {
         </div>
 
         {/* ── Right: Stats + Focus ── */}
-        <div className="grid min-w-0 auto-rows-fr gap-4 overflow-hidden sm:grid-cols-2 md:grid-cols-1">
+        <div className="grid min-w-0 gap-4 overflow-hidden sm:grid-cols-2 sm:auto-rows-fr md:grid-cols-1 md:auto-rows-auto">
           {profileData.stats.map((stat, i) => (
             <div
               key={stat.label}
-              className={`brutal-chip brutal-hover flex min-w-0 flex-col justify-between overflow-hidden p-5 md:min-h-[9.5rem] ${statAccents[i % statAccents.length]}`}
+              className={`brutal-chip brutal-hover flex min-w-0 flex-col overflow-hidden p-5 ${statAccents[i % statAccents.length]}`}
             >
               <p className="font-mono text-[0.68rem] font-black uppercase tracking-[0.24em] text-black">
                 {stat.label}
@@ -114,9 +120,7 @@ export function HeroSection() {
                   key={area.title}
                   className="space-y-1 border-l-2 border-xxx-yellow-300 pl-3"
                 >
-                  <p className="text-sm font-black text-white">
-                    {area.title}
-                  </p>
+                  <p className="text-sm font-black text-white">{area.title}</p>
 
                   <p className="text-sm font-medium leading-relaxed text-white wrap-anywhere">
                     {area.description}
@@ -126,8 +130,7 @@ export function HeroSection() {
             </div>
           </div>
         </div>
-
       </div>
     </div>
-  )
+  );
 }
