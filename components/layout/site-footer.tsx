@@ -6,9 +6,9 @@ import { socialLinks } from "@/lib/data/socials"
 export function SiteFooter() {
   return (
     <footer className="mt-12 border-t border-white/10 pb-10 pt-8">
-      <div className="mx-auto flex max-w-[1600px] flex-col gap-6 px-4 text-sm text-slate-600 sm:px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8 2xl:max-w-[1680px] dark:text-slate-400">
+      <div className="text-soft mx-auto flex max-w-[1600px] flex-col gap-6 px-4 text-sm sm:px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8 2xl:max-w-[1680px]">
         <div className="space-y-2">
-          <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-cyan-700 dark:text-cyan-300/80">
+          <p className="text-accent font-mono text-[0.72rem] uppercase tracking-[0.24em]">
             Curated GitHub snapshot
           </p>
           <p className="max-w-2xl text-sm leading-7">
@@ -22,7 +22,7 @@ export function SiteFooter() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-xs font-medium uppercase tracking-[0.2em] text-slate-500 transition-colors hover:text-cyan-700 dark:text-slate-400 dark:hover:text-cyan-200"
+              className="text-faint text-xs font-medium uppercase tracking-[0.2em] transition-colors hover:text-accent"
             >
               {link.label}
             </Link>

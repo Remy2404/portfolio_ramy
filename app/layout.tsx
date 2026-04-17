@@ -54,9 +54,7 @@ export default function RootLayout({
         <ThemeProvider>
           <div className="relative flex min-h-screen flex-col overflow-x-hidden">
             <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.18),transparent_28%),radial-gradient(circle_at_top_right,rgba(168,85,247,0.14),transparent_28%),radial-gradient(circle_at_bottom,rgba(56,189,248,0.1),transparent_26%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.18),transparent_28%),radial-gradient(circle_at_top_right,rgba(168,85,247,0.14),transparent_28%),radial-gradient(circle_at_bottom,rgba(14,165,233,0.1),transparent_26%)]" />
-              <div className="absolute left-[-10%] top-[14%] h-72 w-72 rounded-full bg-cyan-400/12 blur-[120px] dark:bg-cyan-400/10" />
-              <div className="absolute right-[-8%] top-[10%] h-72 w-72 rounded-full bg-violet-500/12 blur-[120px] dark:bg-violet-500/10" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),transparent_16%)] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.03),transparent_14%)]" />
             </div>
 
             <SiteHeader />

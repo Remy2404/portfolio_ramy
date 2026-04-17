@@ -18,10 +18,10 @@ export function ModeToggle() {
       size="sm"
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="h-10 rounded-full border-white/20 bg-white/70 px-3 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-slate-700 shadow-[0_16px_40px_-28px_rgba(14,116,144,0.45)] backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-100 dark:shadow-[0_18px_45px_-30px_rgba(34,211,238,0.35)]"
+      className="glass-chip text-strong h-10 rounded-full px-3 text-[0.65rem] font-semibold uppercase tracking-[0.22em] shadow-none hover:bg-white/90 dark:hover:bg-white/[0.07]"
     >
-      <SunMedium className="size-3.5 text-cyan-600 dark:text-cyan-300" />
-      <MoonStar className="size-3.5 text-slate-500 dark:text-slate-200" />
+      <SunMedium className="text-accent size-3.5" />
+      <MoonStar className="text-soft size-3.5" />
       <span className="hidden sm:inline">{isDark ? "Light" : "Dark"}</span>
     </Button>
   )
