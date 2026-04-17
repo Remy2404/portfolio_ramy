@@ -11,16 +11,19 @@ const displayFont = Anton({
   variable: "--font-anton",
   subsets: ["latin"],
   weight: "400",
+  display: "swap",
 })
 
 const bodyFont = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
+  display: "swap",
 })
 
 const monoFont = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+  display: "optional",
 })
 
 export const metadata: Metadata = {
