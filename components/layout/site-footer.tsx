@@ -5,24 +5,27 @@ import { socialLinks } from "@/lib/data/socials"
 
 export function SiteFooter() {
   return (
-    <footer className="mt-12 border-t border-white/10 pb-10 pt-8">
-      <div className="text-soft mx-auto flex max-w-[1600px] flex-col gap-6 px-4 text-sm sm:px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8 2xl:max-w-[1680px]">
-        <div className="space-y-2">
-          <p className="text-accent font-mono text-[0.72rem] uppercase tracking-[0.24em]">
+    <footer className="border-t-2 border-black bg-black dark:border-white">
+      {/* Accent stripe */}
+      <div className="h-2 w-full bg-xxx-yellow-300" />
+
+      <div className="mx-auto flex max-w-[1600px] flex-col gap-8 px-4 py-10 sm:px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8 2xl:max-w-[1680px]">
+        <div className="space-y-3">
+          <p className="font-mono text-[0.72rem] font-black uppercase tracking-[0.28em] text-xxx-yellow-300">
             Curated GitHub snapshot
           </p>
-          <p className="max-w-2xl text-sm leading-7">
-            Designed in Next.js 16 with a local content model sourced from public GitHub data. Snapshot date:{" "}
+          <p className="max-w-2xl text-base font-medium leading-relaxed text-white">
+            Designed in Next.js 16 with Neo Brutalism. Local content model sourced from public GitHub data. Snapshot:{" "}
             {siteConfig.sourceSnapshotDate}.
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-6">
           {socialLinks.slice(0, 4).map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-faint text-xs font-medium uppercase tracking-[0.2em] transition-colors hover:text-accent"
+              className="border-b-2 border-transparent text-xs font-black uppercase tracking-[0.2em] text-white transition-colors hover:border-xxx-yellow-300 hover:text-xxx-yellow-300"
             >
               {link.label}
             </Link>

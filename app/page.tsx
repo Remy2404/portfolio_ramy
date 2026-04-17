@@ -6,7 +6,7 @@ import { StaggerGroup, StaggerItem } from "@/components/motion/stagger"
 
 export default function Home() {
   return (
-    <section className="mx-auto flex w-full max-w-[1600px] flex-col gap-8 px-4 pb-24 pt-8 sm:px-6 lg:px-8 2xl:max-w-[1680px]">
+    <section className="mx-auto flex w-full max-w-[1600px] flex-col gap-8 overflow-x-hidden px-4 pb-24 pt-8 sm:px-6 lg:px-8 2xl:max-w-[1680px]">
       <StaggerGroup className="grid gap-8">
         <div className="grid gap-8 xl:grid-cols-[minmax(0,1.32fr)_minmax(24rem,0.78fr)]">
           <StaggerItem className="h-full">

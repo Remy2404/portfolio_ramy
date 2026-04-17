@@ -2,82 +2,91 @@ import Link from "next/link"
 import { ArrowUpRight, PanelsTopLeft } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { GlassCard } from "@/components/ui/glass-card"
+import { BrutalTag } from "@/components/ui/brutal-tag"
 import { featuredProjects, projectBentoItems } from "@/lib/data/projects"
 import { cn } from "@/lib/utils"
 
-const accentClasses = {
-  cyan: "glass-chip text-soft",
-  violet: "glass-chip text-soft",
-  emerald: "glass-chip text-soft",
-  amber: "glass-chip text-soft",
-  slate: "glass-chip text-soft",
-}
+const cardAccents = [
+  "bg-xxx-violet-200",
+  "bg-xxx-cyan-200",
+  "bg-xxx-orange-200",
+  "bg-xxx-pink-200",
+] as const
+
+const statusColors = {
+  "Live":        "yellow",
+  "Production":  "lime",
+  "In Progress": "cyan",
+  "Research":    "violet",
+} as const
 
 export function FeaturedProjectsSection() {
   const layoutProjects = projectBentoItems
     .map((item) => ({
       layout: item,
-      project: featuredProjects.find((project) => project.slug === item.id),
+      project: featuredProjects.find((p) => p.slug === item.id),
     }))
     .filter(
-      (
-        entry
-      ): entry is {
+      (entry): entry is {
         layout: (typeof projectBentoItems)[number]
         project: (typeof featuredProjects)[number]
       } => Boolean(entry.project)
     )
 
   return (
-    <GlassCard accent="slate" glow="medium" size="lg">
+    <div className="brutal-card bg-white p-7">
+
+      {/* Header row */}
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="max-w-2xl">
-          <p className="text-faint font-mono text-[0.7rem] uppercase tracking-[0.28em]">
+          <p className="font-mono text-[0.68rem] font-black uppercase tracking-[0.24em] text-black">
             Selected work
           </p>
-          <h2 className="text-strong mt-3 text-3xl font-semibold tracking-[-0.05em]">
-            Featured projects with product and systems range
+          <h2 className="mt-3 font-heading text-4xl leading-[0.95] tracking-tight text-black sm:text-5xl">
+            Projects with{" "}
+            <span className="inline-block bg-black px-3 py-1 leading-none text-xxx-violet-200">
+              product &amp; systems
+            </span>{" "}
+            range.
           </h2>
-          <p className="text-body mt-3 text-sm leading-7">
+          <p className="mt-3 text-lg font-medium leading-relaxed text-black">
             Four curated builds chosen to show interface craft, backend rigor, and AI-oriented experimentation.
           </p>
         </div>
 
-        <Button
-          asChild
-          variant="outline"
-          className="glass-chip text-strong rounded-full text-xs font-semibold uppercase tracking-[0.18em] hover:bg-white/90 dark:hover:bg-white/[0.08]"
-        >
+        <Button asChild variant="default" size="sm">
           <Link href="/projects">All case studies</Link>
         </Button>
       </div>
 
-      <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-2">
-        {layoutProjects.map(({ layout, project }) => {
+      {/* Project cards grid */}
+      <div className="mt-6 grid gap-4 md:grid-cols-2">
+        {layoutProjects.map(({ layout, project }, i) => {
           const primary = layout.priority === "primary"
+          const bg = cardAccents[i % cardAccents.length]
 
           return (
             <article
               key={project.slug}
               className={cn(
-                "glass-subcard flex h-full flex-col rounded-[28px] p-5",
+                "brutal-hover brutal-chip flex h-full flex-col p-5",
+                bg,
                 layout.area,
                 layout.minHeight
               )}
             >
+              {/* Card header */}
               <div className="flex items-start justify-between gap-4">
                 <div className="space-y-2">
-                  <span
-                    className={cn(
-                      "inline-flex rounded-full border px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em]",
-                      accentClasses[project.accent]
-                    )}
+                  <BrutalTag
+                    color={statusColors[project.status] ?? "yellow"}
+                    size="xs"
+                    shadow
                   >
                     {project.status}
-                  </span>
+                  </BrutalTag>
                   {project.updatedLabel ? (
-                    <p className="text-faint font-mono text-[0.68rem] uppercase tracking-[0.22em]">
+                    <p className="font-mono text-[0.68rem] font-black uppercase tracking-[0.24em] text-black">
                       {project.updatedLabel}
                     </p>
                   ) : null}
@@ -85,30 +94,28 @@ export function FeaturedProjectsSection() {
 
                 <a
                   href={project.repoUrl}
-                  className="glass-chip text-soft inline-flex size-10 items-center justify-center rounded-full transition-colors hover:text-accent"
+                  className="flex size-10 items-center justify-center border-2 border-black bg-black text-white transition-colors hover:bg-white hover:text-black"
                   aria-label={`View ${project.title} on GitHub`}
                 >
                   <PanelsTopLeft className="size-4" />
                 </a>
               </div>
 
+              {/* Card body */}
               <div className="mt-6 space-y-4">
                 <div>
-                  <h3 className="text-strong text-xl font-semibold tracking-[-0.04em]">
+                  <h3 className="text-xl font-black uppercase tracking-[-0.02em] text-black">
                     {project.title}
                   </h3>
-                  <p className="text-soft mt-2 text-sm leading-7">
+                  <p className="mt-2 text-lg leading-relaxed text-black">
                     {primary ? project.description : project.summary}
                   </p>
                 </div>
 
                 {primary ? (
-                  <div className="space-y-2">
+                  <div className="space-y-2 border-l-2 border-black pl-3">
                     {project.highlights.slice(0, 2).map((highlight) => (
-                      <p
-                        key={highlight}
-                        className="text-body text-sm leading-6"
-                      >
+                      <p key={highlight} className="text-base font-medium leading-relaxed text-black">
                         {highlight}
                       </p>
                     ))}
@@ -118,7 +125,7 @@ export function FeaturedProjectsSection() {
                     {project.stack.slice(0, 3).map((item) => (
                       <span
                         key={item}
-                        className="glass-chip text-soft rounded-full px-3 py-1 text-[0.68rem] font-medium uppercase tracking-[0.16em]"
+                        className="border-2 border-black bg-white px-2 py-0.5 font-mono text-[0.6rem] font-black uppercase tracking-[0.12em] text-black"
                       >
                         {item}
                       </span>
@@ -127,10 +134,11 @@ export function FeaturedProjectsSection() {
                 )}
               </div>
 
+              {/* Card footer */}
               <div className="mt-auto flex flex-wrap gap-3 pt-6">
                 <Link
                   href={`/projects#${project.slug}`}
-                  className="text-strong inline-flex items-center gap-2 text-sm font-medium transition-colors hover:text-accent"
+                  className="inline-flex items-center gap-2 border-b-2 border-black text-sm font-black uppercase tracking-[0.1em] text-black hover:border-transparent"
                 >
                   Case study
                   <ArrowUpRight className="size-4" />
@@ -138,7 +146,7 @@ export function FeaturedProjectsSection() {
                 {project.demoUrl ? (
                   <a
                     href={project.demoUrl}
-                    className="text-faint inline-flex items-center gap-2 text-sm font-medium transition-colors hover:text-accent"
+                    className="inline-flex items-center gap-2 border-b-2 border-black text-sm font-black uppercase tracking-[0.1em] text-black transition-colors hover:border-transparent"
                   >
                     Live experience
                     <ArrowUpRight className="size-4" />
@@ -149,6 +157,6 @@ export function FeaturedProjectsSection() {
           )
         })}
       </div>
-    </GlassCard>
+    </div>
   )
 }

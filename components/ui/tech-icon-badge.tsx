@@ -26,29 +26,27 @@ export function TechIconBadge({
   return (
     <div
       className={cn(
-        "glass-subcard relative overflow-hidden rounded-[28px] p-3.5",
+        "brutal-chip brutal-hover flex items-start gap-3 bg-white p-3.5",
         className
       )}
     >
-      <div className="relative flex items-start gap-3">
-        <div className="icon-squircle relative flex size-14 shrink-0 items-center justify-center rounded-[22%]">
-          <StackIcon
-            name={iconKey}
-            variant={variant}
-            className="relative size-8"
-          />
-        </div>
+      <div className="flex size-12 shrink-0 items-center justify-center border-2 border-black bg-white">
+        <StackIcon
+          name={iconKey}
+          variant={variant}
+          className="size-7"
+        />
+      </div>
 
-        <div className="min-w-0">
-          <p className="text-strong text-sm font-semibold">
-            {label}
+      <div className="min-w-0">
+        <p className="text-sm font-black uppercase tracking-[-0.01em] text-black">
+          {label}
+        </p>
+        {description ? (
+          <p className="mt-0.5 line-clamp-2 text-xs font-medium leading-relaxed text-black">
+            {description}
           </p>
-          {description ? (
-            <p className="text-soft mt-1 line-clamp-2 text-xs leading-5">
-              {description}
-            </p>
-          ) : null}
-        </div>
+        ) : null}
       </div>
     </div>
   )
