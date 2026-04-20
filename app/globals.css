@@ -8,6 +8,68 @@
   --color-xxx-violet-200: #A8A6FF;
   --color-xxx-violet-300: #918EFA;
   --color-xxx-violet-400: #807DFA;
+
+  /* ── Animation Design Tokens ── */
+  --animate-fade-in: fade-in 0.3s ease-out forwards;
+  --animate-fade-in-up: fade-in-up 0.4s ease-out forwards;
+  --animate-fade-in-down: fade-in-down 0.4s ease-out forwards;
+  --animate-slide-in-left: slide-in-left 0.4s ease-out forwards;
+  --animate-slide-in-right: slide-in-right 0.4s ease-out forwards;
+  --animate-scale-in: scale-in 0.2s ease-out forwards;
+  --animate-pulse-soft: pulse-soft 2s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fade-in-down {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes slide-in-right {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* ── Spacing Scale (8px grid) ── */
+  --spacing-1: 0.25rem;   /* 4px */
+  --spacing-2: 0.5rem;    /* 8px */
+  --spacing-3: 0.75rem;   /* 12px */
+  --spacing-4: 1rem;      /* 16px */
+  --spacing-5: 1.25rem;  /* 20px */
+  --spacing-6: 1.5rem;    /* 24px */
+  --spacing-8: 2rem;      /* 32px */
+  --spacing-10: 2.5rem;   /* 40px */
+  --spacing-12: 3rem;     /* 48px */
+  --spacing-16: 4rem;     /* 64px */
   --color-xxx-pink-200: #FFA6F6;
   --color-xxx-pink-300: #FA8CEF;
   --color-xxx-pink-400: #FA7FEE;
@@ -225,7 +287,7 @@
 
   /* ── Punchy hover: lift + bigger shadow ── */
   .brutal-hover {
-    transition: transform 80ms linear, box-shadow 80ms linear;
+    transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
   }
 
   .brutal-hover:hover {
@@ -233,13 +295,23 @@
     box-shadow: var(--shadow-brutal-lg);
   }
 
+  .brutal-hover:active {
+    transform: translate(1px, 1px);
+    box-shadow: var(--shadow-brutal-sm);
+  }
+
   .brutal-hover-xl {
-    transition: transform 80ms linear, box-shadow 80ms linear;
+    transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
   }
 
   .brutal-hover-xl:hover {
     transform: translate(-3px, -3px);
     box-shadow: var(--shadow-brutal-xl);
+  }
+
+  .brutal-hover-xl:active {
+    transform: translate(1px, 1px);
+    box-shadow: var(--shadow-brutal-sm);
   }
 
   /* ── Text highlight block ── */
@@ -253,6 +325,68 @@
   .dark .text-highlight {
     background: #807DFA;
     color: #000000;
+  }
+
+  /* ── Skeleton Loading States ── */
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--muted) 0%,
+      var(--muted-foreground) 50%,
+      var(--muted) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+    border-radius: var(--radius-sm);
+  }
+
+  .skeleton-text {
+    height: 1em;
+    width: 100%;
+  }
+
+  .skeleton-text-sm {
+    height: 0.875em;
+    width: 75%;
+  }
+
+  .skeleton-circle {
+    border-radius: 50%;
+  }
+
+  /* ── Scroll Reveal Utilities ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 50ms; }
+  .reveal-delay-2 { transition-delay: 100ms; }
+  .reveal-delay-3 { transition-delay: 150ms; }
+  .reveal-delay-4 { transition-delay: 200ms; }
+  .reveal-delay-5 { transition-delay: 250ms; }
+
+  /* ── Focus Visible States ── */
+  .focus-ring {
+    outline: none;
+    transition: box-shadow 0.15s ease-out, outline 0.15s ease-out;
+  }
+
+  .focus-ring:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--background);
+  }
+
+  .focus-ring-inset:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: -2px;
   }
 }
 

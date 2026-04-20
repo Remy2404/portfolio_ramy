@@ -11,7 +11,7 @@ export type SkillCategoryId =
 export type SkillProficiency = "Core" | "Advanced" | "Working" | "Exploring"
 export type SocialIconName = "github" | "linkedin" | "mail" | "globe" | "facebook"
 export type ProjectStatus = "Live" | "Production" | "In Progress" | "Research"
-export type GlassAccent = "cyan" | "violet" | "emerald" | "amber" | "slate"
+export type GlassAccent = "cyan" | "violet" | "emerald" | "amber" | "slate" | "lime" | "yellow" | "pink"
 export type GlassGlow = "soft" | "medium" | "strong"
 export type GlassCardSize = "sm" | "md" | "lg" | "xl"
 export type BentoItemPriority = "primary" | "secondary" | "support"
@@ -105,4 +105,70 @@ export interface BentoItemConfig {
   priority: BentoItemPriority
   minHeight: string
   motionPreset: MotionPreset
+}
+
+export interface TestimonialData {
+  id: string
+  quote: string
+  author: string
+  role: string
+  avatar: string
+  color: "violet" | "cyan" | "lime" | "yellow" | "pink"
+}
+
+export interface BlogPostData {
+  slug: string
+  title: string
+  excerpt: string
+  date: string
+  readTime: string
+  category: string
+}
+
+export interface PhilosophyData {
+  principle: string
+  description: string
+}
+
+export interface AchievementData {
+  id: string
+  metric: string
+  label: string
+  description: string
+  accent: "violet" | "cyan" | "lime" | "yellow"
+}
+
+export type ExperienceType = "education" | "internship"
+
+export type ExperienceAccent = "violet" | "cyan" | "lime" | "yellow"
+
+export interface ExperienceData {
+  id: string
+  type: ExperienceType
+  title: string
+  organization: string
+  location: string
+  startDate: string
+  endDate: string
+  description: string
+  accent: ExperienceAccent
+}
+
+export interface OpenSourceRepo {
+  name: string
+  description: string
+  stars: number
+  forks: number
+  language: string
+  languageColor: string
+  url: string
+  accent: "violet" | "cyan" | "lime" | "yellow"
+}
+
+export interface OpenSourceData {
+  githubUsername: string
+  totalStars: number
+  totalForks: number
+  totalPRs: number
+  repos: OpenSourceRepo[]
 }
