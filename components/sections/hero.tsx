@@ -30,7 +30,7 @@ export function HeroSection() {
             </p>
 
             {/* Heading */}
-            <h1 className="max-w-3xl text-[clamp(1rem,9vw,4.75rem)] font-heading leading-[1.1] tracking-tight text-black sm:text-6xl sm:leading-[1.05] md:text-7xl lg:text-8xl xl:text-9xl">
+            <h1 className="max-w-2xl text-[clamp(1rem,9vw,4.75rem)] font-heading leading-[1.1] tracking-tight text-black sm:text-6xl sm:leading-[1.05] md:text-7xl lg:text-8xl xl:text-5xl">
               Premium{" "}
               <span className="inline-block align-baseline bg-black px-2 py-[0.05em] leading-none text-xxx-yellow-300">
                 interfaces,

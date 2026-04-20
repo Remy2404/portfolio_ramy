@@ -38,14 +38,6 @@ export const skillCategories: SkillCategory[] = [
         proficiency: "Core",
         description: "Typed UI contracts, shared models, and safer refactors.",
       },
-      {
-        slug: "flutter",
-        label: "Flutter",
-        iconKey: "flutter",
-        category: "frontend",
-        proficiency: "Working",
-        description: "Cross-platform product thinking and mobile interface delivery.",
-      },
     ],
   },
   {
