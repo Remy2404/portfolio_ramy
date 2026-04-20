@@ -2,6 +2,14 @@ import { FeaturedProjectsSection } from "@/components/sections/featured-projects
 import { HeroSection } from "@/components/sections/hero"
 import { SocialLinksSection } from "@/components/sections/social-links"
 import { TechStackSection } from "@/components/sections/tech-stack"
+import { TestimonialsSection } from "@/components/sections/testimonials"
+import { BlogSection } from "@/components/sections/blog"
+import { PhilosophySection } from "@/components/sections/philosophy"
+import { ExperienceSection } from "@/components/sections/experience"
+import { ServicesSection } from "@/components/sections/services"
+import { AchievementsSection } from "@/components/sections/achievements"
+import { ContactSection } from "@/components/sections/contact"
+import { OpenSourceSection } from "@/components/sections/opensource"
 import { StaggerGroup, StaggerItem } from "@/components/motion/stagger"
 
 export default function Home() {
@@ -28,6 +36,40 @@ export default function Home() {
             <FeaturedProjectsSection />
           </StaggerItem>
         </div>
+
+        {/* New sections: Philosophy, Testimonials, Blog */}
+        <StaggerItem>
+          <PhilosophySection />
+        </StaggerItem>
+
+        <StaggerItem>
+          <TestimonialsSection />
+        </StaggerItem>
+
+        <StaggerItem>
+          <BlogSection />
+        </StaggerItem>
+
+        {/* New sections from agent team */}
+        <StaggerItem>
+          <ExperienceSection />
+        </StaggerItem>
+
+        <StaggerItem>
+          <ServicesSection />
+        </StaggerItem>
+
+        <StaggerItem>
+          <AchievementsSection />
+        </StaggerItem>
+
+        <StaggerItem>
+          <OpenSourceSection />
+        </StaggerItem>
+
+        <StaggerItem>
+          <ContactSection />
+        </StaggerItem>
       </StaggerGroup>
     </section>
   )

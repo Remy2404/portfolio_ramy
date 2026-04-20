@@ -19,6 +19,9 @@ const brutalCardVariants = cva(
         violet: "brutal-section-violet",
         emerald: "brutal-section-lime",
         amber: "brutal-section-yellow",
+        lime: "brutal-section-lime",
+        yellow: "brutal-section-yellow",
+        pink: "brutal-section-pink",
         slate: "bg-white dark:bg-card",
       },
       glow: {
