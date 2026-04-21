@@ -153,6 +153,16 @@
   --text-soft: #444444;
   --text-faint: #777777;
   --text-accent: #807DFA;
+  --accent-surface-foreground: #000000;
+  --accent-surface-foreground-muted: rgb(0 0 0 / 0.72);
+  --accent-surface-foreground-subtle: rgb(0 0 0 / 0.56);
+  --accent-surface-divider: rgb(0 0 0 / 0.18);
+  --accent-fill-violet: var(--color-xxx-violet-200);
+  --accent-fill-cyan: var(--color-xxx-cyan-200);
+  --accent-fill-lime: var(--color-xxx-lime-200);
+  --accent-fill-yellow: var(--color-xxx-yellow-200);
+  --accent-fill-pink: var(--color-xxx-pink-200);
+  --accent-fill-orange: var(--color-xxx-orange-200);
   --shadow-brutal-sm: 3px 3px 0px 0px #000000;
   --shadow-brutal-md: 4px 4px 0px 0px #000000;
   --shadow-brutal-lg: 6px 6px 0px 0px #000000;
@@ -187,6 +197,16 @@
   --text-soft: #AAAAAA;
   --text-faint: #777777;
   --text-accent: #A8A6FF;
+  --accent-surface-foreground: #000000;
+  --accent-surface-foreground-muted: rgb(0 0 0 / 0.72);
+  --accent-surface-foreground-subtle: rgb(0 0 0 / 0.56);
+  --accent-surface-divider: rgb(0 0 0 / 0.18);
+  --accent-fill-violet: color-mix(in srgb, var(--color-xxx-violet-200) 88%, var(--background) 12%);
+  --accent-fill-cyan: color-mix(in srgb, var(--color-xxx-cyan-200) 88%, var(--background) 12%);
+  --accent-fill-lime: color-mix(in srgb, var(--color-xxx-lime-200) 88%, var(--background) 12%);
+  --accent-fill-yellow: color-mix(in srgb, var(--color-xxx-yellow-200) 90%, var(--background) 10%);
+  --accent-fill-pink: color-mix(in srgb, var(--color-xxx-pink-200) 88%, var(--background) 12%);
+  --accent-fill-orange: color-mix(in srgb, var(--color-xxx-orange-200) 88%, var(--background) 12%);
   --shadow-brutal-sm: 3px 3px 0px 0px #FFFFFF;
   --shadow-brutal-md: 4px 4px 0px 0px #FFFFFF;
   --shadow-brutal-lg: 6px 6px 0px 0px #FFFFFF;
@@ -277,12 +297,12 @@
   }
 
   /* ── Section fill variants ── */
-  .brutal-section-violet { background: #A8A6FF; }
-  .brutal-section-cyan   { background: #A6FAFF; }
-  .brutal-section-lime   { background: #B8FF9F; }
-  .brutal-section-yellow { background: #FFF066; }
-  .brutal-section-pink   { background: #FFA6F6; }
-  .brutal-section-orange { background: #FFC29F; }
+  .brutal-section-violet { background: var(--accent-fill-violet); }
+  .brutal-section-cyan   { background: var(--accent-fill-cyan); }
+  .brutal-section-lime   { background: var(--accent-fill-lime); }
+  .brutal-section-yellow { background: var(--accent-fill-yellow); }
+  .brutal-section-pink   { background: var(--accent-fill-pink); }
+  .brutal-section-orange { background: var(--accent-fill-orange); }
   .brutal-section-black  { background: #000000; }
 
   /* ── Punchy hover: lift + bigger shadow ── */
@@ -396,6 +416,20 @@
 .text-soft   { color: var(--text-soft); }
 .text-faint  { color: var(--text-faint); }
 .text-accent { color: var(--text-accent); }
+.text-accent-surface { color: var(--accent-surface-foreground); }
+.text-accent-surface-muted { color: var(--accent-surface-foreground-muted); }
+.text-accent-surface-subtle { color: var(--accent-surface-foreground-subtle); }
+.border-accent-surface { border-color: var(--accent-surface-foreground); }
+.border-accent-surface-divider { border-color: var(--accent-surface-divider); }
+.bg-accent-surface { background: var(--accent-surface-foreground); }
+.readable-title {
+  font-family: var(--font-space-grotesk);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  text-rendering: optimizeLegibility;
+  text-wrap: balance;
+}
 
 @media (prefers-reduced-motion: reduce) {
   html {

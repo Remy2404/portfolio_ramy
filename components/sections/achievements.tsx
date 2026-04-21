@@ -1,13 +1,16 @@
 "use client"
 
 import { achievementsData } from "@/lib/data/achievements"
-import { BrutalTag } from "@/components/ui/brutal-tag"
 
 const accentStyles = {
   violet: "bg-xxx-violet-200",
   cyan: "bg-xxx-cyan-200",
   lime: "bg-xxx-lime-200",
   yellow: "bg-xxx-yellow-300",
+}
+
+function isCompactMetric(metric: string) {
+  return /^[\d+]+$/.test(metric)
 }
 
 export function AchievementsSection() {
@@ -42,12 +45,18 @@ export function AchievementsSection() {
 
             <div className="mt-4 space-y-3">
               {/* Metric display */}
-              <div className="font-heading text-5xl font-bold leading-none tracking-tight text-foreground">
+              <div
+                className={
+                  isCompactMetric(achievement.metric)
+                    ? "font-heading text-5xl font-bold leading-none tracking-tight text-foreground"
+                    : "readable-title text-3xl text-foreground sm:text-4xl"
+                }
+              >
                 {achievement.metric}
               </div>
 
               {/* Label */}
-              <h3 className="font-heading text-lg font-bold text-foreground">
+              <h3 className="readable-title text-lg text-foreground">
                 {achievement.label}
               </h3>
 

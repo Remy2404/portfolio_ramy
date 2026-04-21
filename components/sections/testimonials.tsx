@@ -1,14 +1,5 @@
 import { testimonialsData } from "@/lib/data/testimonials"
 import { GlassCard } from "@/components/ui/glass-card"
-import { BrutalTag } from "@/components/ui/brutal-tag"
-
-const accentColors = {
-  violet: "brutal-section-violet",
-  cyan: "brutal-section-cyan",
-  lime: "brutal-section-lime",
-  yellow: "brutal-section-yellow",
-  pink: "brutal-section-pink",
-} as const
 
 export function TestimonialsSection() {
   return (
@@ -34,32 +25,32 @@ export function TestimonialsSection() {
             key={testimonial.id}
             accent={testimonial.color}
             size="md"
-            className={`reveal visible animate-fade-in-up`}
+            className="reveal visible animate-fade-in-up"
             style={{ animationDelay: `${index * 100}ms` }}
           >
             <div className="space-y-5">
               <div className="space-y-4">
                 <svg
-                  className="size-6 text-foreground/40"
+                  className="size-6 text-accent-surface-subtle"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
-                <blockquote className="text-base font-medium leading-relaxed text-foreground">
-                  "{testimonial.quote}"
+                <blockquote className="text-base font-medium leading-relaxed text-accent-surface">
+                  &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
               </div>
 
-              <div className="flex items-center gap-3 border-t-2 border-current pt-4">
-                <div className="flex size-10 shrink-0 items-center justify-center border-2 border-current bg-transparent font-heading text-sm font-bold">
+              <div className="flex items-center gap-3 border-t-2 border-accent-surface-divider pt-4">
+                <div className="flex size-10 shrink-0 items-center justify-center border-2 border-accent-surface bg-transparent font-heading text-sm font-bold text-accent-surface">
                   {testimonial.avatar}
                 </div>
                 <div className="min-w-0">
-                  <p className="font-heading text-sm font-bold leading-tight text-foreground">
+                  <p className="font-heading text-sm font-bold leading-tight text-accent-surface">
                     {testimonial.author}
                   </p>
-                  <p className="text-xs font-medium leading-relaxed text-foreground/70">
+                  <p className="text-xs font-medium leading-relaxed text-accent-surface-muted">
                     {testimonial.role}
                   </p>
                 </div>

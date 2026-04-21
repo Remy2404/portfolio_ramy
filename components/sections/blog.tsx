@@ -47,7 +47,7 @@ export function BlogSection() {
                     </span>
                   </div>
 
-                  <h3 className="font-heading text-xl font-bold leading-tight text-foreground transition-colors group-hover/reveal:text-primary">
+                  <h3 className="readable-title text-xl text-foreground transition-colors group-hover/reveal:text-primary">
                     {post.title}
                   </h3>
 

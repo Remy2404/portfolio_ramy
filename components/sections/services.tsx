@@ -3,7 +3,6 @@
 import { Code2, Server, Sparkles, Boxes, SearchCheck } from "lucide-react"
 
 import { servicesData } from "@/lib/data/services"
-import { BrutalTag } from "@/components/ui/brutal-tag"
 import { cn } from "@/lib/utils"
 
 const iconMap = {
@@ -17,28 +16,18 @@ const iconMap = {
 const accentClasses = {
   violet: {
     bg: "bg-xxx-violet-200",
-    border: "border-xxx-violet-400",
-    text: "text-xxx-violet-400",
   },
   cyan: {
     bg: "bg-xxx-cyan-200",
-    border: "border-xxx-cyan-400",
-    text: "text-xxx-cyan-400",
   },
   lime: {
     bg: "bg-xxx-lime-200",
-    border: "border-xxx-lime-400",
-    text: "text-xxx-lime-400",
   },
   yellow: {
     bg: "bg-xxx-yellow-200",
-    border: "border-xxx-yellow-400",
-    text: "text-xxx-yellow-400",
   },
   pink: {
     bg: "bg-xxx-pink-200",
-    border: "border-xxx-pink-400",
-    text: "text-xxx-pink-400",
   },
 }
 
@@ -86,7 +75,7 @@ export function ServicesSection() {
 
               {/* Content */}
               <div className="flex flex-1 flex-col">
-                <h3 className="font-heading text-xl font-bold leading-tight text-black">
+                <h3 className="readable-title text-xl text-black">
                   {service.title}
                 </h3>
                 <p className="mt-3 text-base font-medium leading-relaxed text-black">

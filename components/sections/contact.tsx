@@ -9,7 +9,6 @@ import { FaGithub, FaLinkedin } from "react-icons/fa"
 
 import { contactData } from "@/lib/data/contact"
 import { GlassCard } from "@/components/ui/glass-card"
-import { BrutalTag } from "@/components/ui/brutal-tag"
 import { cn } from "@/lib/utils"
 
 const iconMap: Record<string, React.ElementType> = {
@@ -22,7 +21,7 @@ const iconMap: Record<string, React.ElementType> = {
 const buttonVariants = {
   primary: "bg-secondary text-secondary-foreground border-2 border-border brutal-hover-xl",
   secondary: "bg-primary text-primary-foreground border-2 border-border brutal-hover-xl",
-  outline: "bg-transparent text-foreground border-2 border-border brutal-hover-xl",
+  outline: "bg-transparent text-accent-surface border-2 border-accent-surface brutal-hover-xl",
 }
 
 export function ContactSection() {
@@ -33,7 +32,7 @@ export function ContactSection() {
           Get in touch
         </p>
         <h2 className="font-heading text-3xl leading-[0.95] tracking-tight text-foreground sm:text-4xl md:text-5xl">
-          Let's build.{" "}
+          Let&apos;s build.{" "}
           <span className="inline-block bg-foreground px-3 py-1 leading-none text-background">
             Start the conversation.
           </span>
@@ -50,7 +49,7 @@ export function ContactSection() {
       >
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div className="max-w-xl">
-            <p className="text-lg font-medium leading-relaxed text-foreground">
+            <p className="text-lg font-medium leading-relaxed text-accent-surface">
               {contactData.tagline}
             </p>
           </div>
@@ -68,7 +67,7 @@ export function ContactSection() {
                   rel={cta.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className={cn(
                     variantClasses,
-                    "inline-flex items-center gap-2 px-5 py-3 font-heading text-sm font-bold uppercase tracking-wide",
+                    "inline-flex items-center gap-2 px-5 py-3 font-sans text-sm font-semibold leading-none tracking-[0.01em] sm:text-[0.95rem]",
                     "focus-ring-inset"
                   )}
                   style={{ animationDelay: `${index * 80}ms` }}

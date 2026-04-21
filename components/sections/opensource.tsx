@@ -2,9 +2,6 @@
 
 import { openSourceData } from "@/lib/data/opensource"
 import { GlassCard } from "@/components/ui/glass-card"
-import { BrutalTag } from "@/components/ui/brutal-tag"
-
-const accentVariants = ["violet", "cyan", "lime", "yellow"] as const
 
 function StatChip({
   label,
@@ -26,8 +23,8 @@ function StatChip({
     <div
       className={`brutal-chip inline-flex items-center gap-2 px-3 py-1.5 ${colorClasses[color]}`}
     >
-      <span className="font-mono text-sm font-bold text-foreground">{value.toLocaleString()}</span>
-      <span className="text-xs font-medium uppercase tracking-wider text-foreground/70">
+      <span className="font-mono text-sm font-bold text-accent-surface">{value.toLocaleString()}</span>
+      <span className="text-xs font-medium uppercase tracking-wider text-accent-surface-muted">
         {label}
       </span>
     </div>
@@ -57,11 +54,11 @@ function RepoCard({
       >
         <div className="space-y-3">
           <div className="flex items-start justify-between gap-2">
-            <h3 className="font-heading text-lg font-bold leading-tight text-foreground">
+            <h3 className="readable-title text-lg text-accent-surface">
               {repo.name}
             </h3>
-            <div className="flex shrink-0 items-center gap-1.5">
-              <span className="font-mono text-xs font-bold text-foreground">
+            <div className="flex shrink-0 items-center gap-1.5 text-accent-surface">
+              <span className="font-mono text-xs font-bold">
                 {repo.stars}
               </span>
               <svg
@@ -79,7 +76,7 @@ function RepoCard({
             </div>
           </div>
 
-          <p className="text-sm font-medium leading-relaxed text-foreground/80 line-clamp-2">
+          <p className="line-clamp-2 text-sm font-medium leading-relaxed text-accent-surface-muted">
             {repo.description}
           </p>
 
@@ -89,11 +86,11 @@ function RepoCard({
                 className="w-2.5 h-2.5 rounded-full"
                 style={{ backgroundColor: repo.languageColor }}
               />
-              <span className="text-xs font-medium text-foreground/70">
+              <span className="text-xs font-medium text-accent-surface-muted">
                 {repo.language}
               </span>
             </div>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 text-accent-surface-muted">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -106,7 +103,7 @@ function RepoCard({
                   clipRule="evenodd"
                 />
               </svg>
-              <span className="font-mono text-xs font-bold text-foreground/70">
+              <span className="font-mono text-xs font-bold">
                 {repo.forks}
               </span>
             </div>

@@ -55,7 +55,7 @@ export function TechIconBadge({
     <div
       className={cn(
         "brutal-chip brutal-hover flex items-start gap-3 p-3.5",
-        "bg-white dark:bg-[#1A1A1A]",
+        "bg-card",
         className
       )}
     >
@@ -71,11 +71,11 @@ export function TechIconBadge({
       </div>
 
       <div className="min-w-0">
-        <p className="text-sm font-black uppercase tracking-[-0.01em] text-black dark:text-white">
+        <p className="text-sm font-black uppercase tracking-[-0.01em] text-card-foreground">
           {label}
         </p>
         {description ? (
-          <p className="mt-0.5 line-clamp-2 text-xs font-medium leading-relaxed text-black dark:text-[#AAAAAA]">
+          <p className="mt-0.5 line-clamp-2 text-xs font-medium leading-relaxed text-muted-foreground">
             {description}
           </p>
         ) : null}

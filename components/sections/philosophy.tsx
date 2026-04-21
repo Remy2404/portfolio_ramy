@@ -1,6 +1,5 @@
 import { philosophyData } from "@/lib/data/philosophy"
 import { GlassCard } from "@/components/ui/glass-card"
-import { BrutalTag } from "@/components/ui/brutal-tag"
 
 const accentVariants = ["violet", "cyan", "lime", "yellow"] as const
 
@@ -32,10 +31,10 @@ export function PhilosophySection() {
             style={{ animationDelay: `${index * 80}ms` }}
           >
             <div className="space-y-3">
-              <h3 className="font-heading text-xl font-bold leading-tight text-foreground">
+              <h3 className="readable-title text-xl text-accent-surface">
                 {item.principle}
               </h3>
-              <p className="text-base font-medium leading-relaxed text-foreground/80">
+              <p className="text-base font-medium leading-relaxed text-accent-surface-muted">
                 {item.description}
               </p>
             </div>

@@ -3,13 +3,6 @@
 import { experienceData } from "@/lib/data/experience"
 import { BrutalTag } from "@/components/ui/brutal-tag"
 
-const accentColorMap: Record<string, string> = {
-  violet: "bg-xxx-violet-200 border-xxx-violet-300",
-  cyan: "bg-xxx-cyan-200 border-xxx-cyan-300",
-  lime: "bg-xxx-lime-200 border-xxx-lime-300",
-  yellow: "bg-xxx-yellow-200 border-xxx-yellow-300",
-}
-
 export function ExperienceSection() {
   const educationItems = experienceData.filter((item) => item.type === "education")
   const internshipItems = experienceData.filter((item) => item.type === "internship")
@@ -36,7 +29,7 @@ export function ExperienceSection() {
         <h3 className="mb-4 font-heading text-xl font-bold text-foreground">
           Education
         </h3>
-        <div className="relative border-l-2 border-black/20 dark:border-white/20 pl-6 md:pl-8">
+        <div className="relative border-l-2 border-border/20 pl-6 md:pl-8">
           {educationItems.map((item, index) => (
             <div
               key={item.id}
@@ -44,11 +37,11 @@ export function ExperienceSection() {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Timeline dot */}
-              <div className="absolute -left-[30px] md:-left-[34px] h-4 w-4 rounded-full border-2 border-black bg-white dark:border-white dark:bg-black" />
+              <div className="absolute -left-[30px] md:-left-[34px] h-4 w-4 rounded-full border-2 border-border bg-background" />
               <div className="brutal-card p-5">
                 <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
                   <div className="flex-1">
-                    <h4 className="font-heading text-lg font-bold leading-tight text-foreground">
+                    <h4 className="readable-title text-lg text-foreground">
                       {item.title}
                     </h4>
                     <p className="text-sm font-medium leading-relaxed text-foreground/70">
@@ -73,7 +66,7 @@ export function ExperienceSection() {
         <h3 className="mb-4 font-heading text-xl font-bold text-foreground">
           Internships & Work
         </h3>
-        <div className="relative border-l-2 border-black/20 dark:border-white/20 pl-6 md:pl-8">
+        <div className="relative border-l-2 border-border/20 pl-6 md:pl-8">
           {internshipItems.map((item, index) => (
             <div
               key={item.id}
@@ -81,11 +74,11 @@ export function ExperienceSection() {
               style={{ animationDelay: `${(index + educationItems.length) * 100}ms` }}
             >
               {/* Timeline dot */}
-              <div className="absolute -left-[30px] md:-left-[34px] h-4 w-4 rounded-full border-2 border-black bg-white dark:border-white dark:bg-black" />
+              <div className="absolute -left-[30px] md:-left-[34px] h-4 w-4 rounded-full border-2 border-border bg-background" />
               <div className="brutal-card p-5">
                 <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
                   <div className="flex-1">
-                    <h4 className="font-heading text-lg font-bold leading-tight text-foreground">
+                    <h4 className="readable-title text-lg text-foreground">
                       {item.title}
                     </h4>
                     <p className="text-sm font-medium leading-relaxed text-foreground/70">
